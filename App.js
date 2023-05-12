@@ -1,22 +1,35 @@
-// const image_base_path = "https://image.tmdb.org/t/p/w500"
+ function fetchAPIExample() {
+   let promiseObject = fetch("https://api.themoviedb.org/3/tv/popular?api_key=f7deed720cf5347ef72ca2f166de2c19&language=en-US&page=1");
+    return promiseObject
+     .then((response) => response.json()) 
+     .then((response) => response.results.map(data => {
+     `<div class="main-container">
+                    "<div class="poster-container">
+                       <img src="./html5.seatheme.net/aside/images/avatar-wow.jpg" class="poster" />
+                    </div>
+                    <div class="box-container">
+                        <div class="ticket__content">
+                            <h5 class="movie-title">
+                               {data.original_name}
+                            </h5>
 
-// const API_URL = https://api.themoviedb.org/3/tv/213713/images?api_key=f7deed720cf5347ef72ca2f166de2c19&language=en-US
+                            <h6 class="movie-info">Lang : {data.original_language.toUpperCase()} <span class="rating">8.2</span></h6>
+                        </div>
+                    </div>
+                </div>`
+               }));
+              
+ }
+   
+    document.getElementById("hero-container").innerHTML = fetchAPIExample();
+// function fetchAPIExample() {
+      //   let promiseObject = fetch("https://api.themoviedb.org/3/tv/popular?api_key=f7deed720cf5347ef72ca2f166de2c19&language=en-US&page=1");
+      //   promiseObject
+      //     .then((response) => response.json())
+      //     .then((response) => console.log("response -> ", response));
+      // }
 
-// const SEARCH_API = https://api.themoviedb.org/3/search/movie?api_key=f7deed720cf5347ef72ca2f166de2c19&query=
-
-
-// val poster = image_base_path + data.poster_path
-
-
-
-      function fetchAPIExample() {
-        let promiseObject = fetch("https://api.themoviedb.org/3/tv/213713/images?api_key=f7deed720cf5347ef72ca2f166de2c19&language=en-US");
-        promiseObject
-          .then((response) => response.json())
-          .then((response) => console.log("response -> ", response));
-      }
-
-      fetchAPIExample();
+      // fetchAPIExample();
 
     
   
