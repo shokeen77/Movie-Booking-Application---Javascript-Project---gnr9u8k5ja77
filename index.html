@@ -3,7 +3,6 @@
     <head>
         <title>Movie Booking Application</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
         <!-- Google fonts styles -->
         <link
             rel="stylesheet"
@@ -23,35 +22,15 @@
                 <!--End sidebar-trigger-->
                 <div class="sidebar-main">
                     <!--Logo-->
-                    <h1 id="genre-section"><a href="index.html">Genres</a></h1>
-
+                    <h1 id="genre-section">
+                        <a href="index.html">Genres</a>
+                    </h1>
                     <!--Menu-->
-                    <nav id="navi" >
+                    <nav id="navi">
                         <div id="navi_wrap" class="menu-demo-menu-container">
-                            <ul class="menu">
-                                <li class="menu-item menu-item-type-post_type"></li>
-                                <li class="menu-item menu-item-type-post_type">
-                                    <a>Action</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type">
-                                    <a>Adventure</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type">
-                                    <a>Animation</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type">
-                                    <a>Comedy</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type">
-                                    <a>Action</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type">
-                                    <a>Adventure</a>
-                                </li>
-                            </ul>
+                            <ul class="menu" id="genre-list"></ul>
                         </div>
                     </nav>
-
                     <!-- End Menu -->
                 </div>
                 <!--end sidebar-main-->
@@ -62,57 +41,58 @@
                     <a href="#home">Movie Booking Application</a>
                     <div class="sidebar-bottom-wrap">
                         <form class="search-form_header">
-                            <input type="text" class="textboxsearch" placeholder="Search" />
+                            <input type="text" id="search-field" class="textboxsearch" placeholder="Search" />
                             <span class="submit-wrap">
-                                <input type="submit" />
+                                <input type="submit" onclick="searchMovie(event)" />
                             </span>
                         </form>
                     </div>
                 </div>
+
+                <!--#Checkout-page-->
                 <div class="container">
-                <div id="hero-container" class="container text-center"></div>
-            </div>
-        </div>
-            <!--End #main-wrap-->
-        </div>
-
-        <div class="wrapper poster" id="popup" >
-            <div class="main_card" >
-                <div class="card_left" >
-                    <div class="card_datails">
-                        <h1>Dirty Linen</h1>
-                        <div class="card_cat">
-                            <p class="PG">PG - 13</p>
-                            <p class="year">2018</p>
-                            <p class="genre">Action | Adventure </p>
-                            <p class="time">2h 28m</p>
+                    <div id="hero-container" class="container text-center"></div>
+                    <div class="wrapper poster" id="popup" >
+                        <div class="main_card" >
+                            <div class="card_left" >
+                                <div class="card_datails">
+                                    <h1>Dirty Linen</h1>
+                                    <div class="card_cat">
+                                        <p class="PG">PG - 13</p>
+                                        <p class="year">2018</p>
+                                        <p class="genre">Action | Adventure </p>
+                                        <p class="time">2h 28m</p>
+                                    </div>
+                                    <p class="disc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit placeat rem assumenda iusto ab quaerat doloribus numquam officiis sed voluptates enim quia cum, maxime quis, aliquid, sint omnis eligendi incidunt?</p>
+                                   
+                                <div class="social-btn">
+                            <!-- WATCH TRAILER-->
+                                    <a href="checkout-page.html"><button class="buy_ticket" >
+                                        Book Now
+                                    </button>
+                                    <!-- GET-->
+                                   </div>	
+                                </div>
+                            </div>
+                            <div class="card_right">
+                                <div class="img_container">
+                                    <img src="" alt="">
+                                    </div>
+                                    <div class="play_btn">
+                                        <a href="#" target="_blank">
+                                          
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <p class="disc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit placeat rem assumenda iusto ab quaerat doloribus numquam officiis sed voluptates enim quia cum, maxime quis, aliquid, sint omnis eligendi incidunt?</p>
-                       
-                    <div class="social-btn">
-                <!-- WATCH TRAILER-->
-                        <button class="buy_ticket">
-                            Book Now
-                        </button>
-                        <!-- GET-->
-                       </div>	
-                    </div>
-                </div>
-                <div class="card_right">
-                    <div class="img_container">
-                        <img src="" alt="">
-                        </div>
-                        <div class="play_btn">
-                            <a href="#" target="_blank">
-                              
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
+        </div>
+        <!-- Button trigger modal -->
 
-           
-<script src="App.js"></script>
-       
+        <!-- Modal -->
+
+        <script src="App.js"></script>
     </body>
 </html>
