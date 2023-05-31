@@ -1,16 +1,40 @@
 const image_base_path = "https://image.tmdb.org/t/p/w500";
+
 function fetchAPIExample() {
-   let temp = fetch("https://api.themoviedb.org/3/tv/popular?api_key=f7deed720cf5347ef72ca2f166de2c19&language=en-US&page=1")
-    .then((response) => response.json()) 
-    .then((response) => {
-     
-      let result = ""
-      response.results.map(data =>  {
-         const imgeUrl = image_base_path + data.poster_path;
-         result += `<div class="main-container" >
+    let temp = fetch("https://api.themoviedb.org/3/tv/popular?api_key=f7deed720cf5347ef72ca2f166de2c19&language=en-US&page=1")
+        .then((response) => response.json())
+        .then((response) => {
+            let tempId = 0;
+            let result = ""
+            response.results.map(data => {
+                const imgeUrl = image_base_path + data.poster_path;
+                result += `<div class="main-container" >
              <div class="poster-container" >
-             <button href="#" ><img src="${imgeUrl}" class="poster" onclick = "showDescription('${data.original_name}','description')"/></button>
-            </div>
+             <button  type="button"  data-bs-toggle="modal" data-bs-target="#${data.original_name}" href="#" ><img  src="${imgeUrl}" class="poster"/></button>
+             <div class="modal fade" id="${data.original_name}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             <div class="modal-dialog modal-dialog-centered">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body">
+                     <img src = "${imgeUrl}" />
+                  <div class = "title">${data.original_name} </br>
+                  <span class = "rating-board"> 8.2/10</span> </br>
+                  <span class = "lang"> ${data.original_language.toUpperCase()} </span>
+                
+                  </div> 
+                  </div>
+                 <div class = "title"> </div>
+                     <div class="modal-footer">
+                        <a href = "checkout-page.html"> <button  type="button" class="btn-second" data-bs-dismiss="modal">Book Now</button> </a>
+                       
+                     </div>
+                 </div>
+             </div>
+         </div>
+             </div>
             <div class="box-container">
                <div class="ticket__content">
                   <h5 class="movie-title">
@@ -20,46 +44,46 @@ function fetchAPIExample() {
                </div>
             </div>
          </div>`
-    }).join()
-    document.getElementById("hero-container").innerHTML = result;
-    });
-             
+            }).join()
+            document.getElementById("hero-container").innerHTML = result;
+        });
+
 }
 fetchAPIExample()
 
 
 
 
- function genreList(){
-   const GENRE_URL = "https://api.themoviedb.org/3/genre/movie/list?api_key=f7deed720cf5347ef72ca2f166de2c19&language=en-US";
-   let genreList="";
-   fetch(GENRE_URL)
-      .then(res => res.json())
-      .then(res => {
+function genreList() {
+    const GENRE_URL = "https://api.themoviedb.org/3/genre/movie/list?api_key=f7deed720cf5347ef72ca2f166de2c19&language=en-US";
+    let genreList = "";
+    fetch(GENRE_URL)
+        .then(res => res.json())
+        .then(res => {
 
-         res.genres.map(data => {
-            genreList += ` <li class="menu-item menu-item-type-post_type" id = $(data.id)>${data.name}</li>`
-         }).join();
-         document.getElementById("genre-list").innerHTML= genreList;
-      }) 
- }
- genreList();
+            res.genres.map(data => {
+                genreList += ` <li class="menu-item menu-item-type-post_type" id = $(data.id)>${data.name}</li>`
+            }).join();
+            document.getElementById("genre-list").innerHTML = genreList;
+        })
+}
+genreList();
 
 
- function searchMovie(event){
-   event.preventDefault();
-   const MOVIE_BASE = "https://api.themoviedb.org/3/search/movie?api_key=f7deed720cf5347ef72ca2f166de2c19&language=en-US&query=";
-   const MOVIE_URL_SUFFIX = "&page=1&include adult=false";
-   const searchTerm = document.getElementById("search-field").value;
-   const movieUrl = MOVIE_BASE + searchTerm + MOVIE_URL_SUFFIX;
-   fetch(movieUrl)
-    .then((response) => response.json()) 
-    .then((response) => {
-     
-      let result = ""
-      response.results.map(data =>  {
-         const imgeUrl = image_base_path + data.poster_path;
-         result += `<div class="main-container" >
+function searchMovie(event) {
+    event.preventDefault();
+    const MOVIE_BASE = "https://api.themoviedb.org/3/search/movie?api_key=f7deed720cf5347ef72ca2f166de2c19&language=en-US&query=";
+    const MOVIE_URL_SUFFIX = "&page=1&include adult=false";
+    const searchTerm = document.getElementById("search-field").value;
+    const movieUrl = MOVIE_BASE + searchTerm + MOVIE_URL_SUFFIX;
+    fetch(movieUrl)
+        .then((response) => response.json())
+        .then((response) => {
+
+            let result = ""
+            response.results.map(data => {
+                const imgeUrl = image_base_path + data.poster_path;
+                result += `<div class="main-container" >
              <div class="poster-container" >
              <button href="#" ><img src="${imgeUrl !=null && imgeUrl != "" ? imgeUrl : "./avatar-wow.jpg"}" class="poster" onclick = "showDescription('${data.original_name}')"/></button>
             </div>
@@ -73,14 +97,14 @@ fetchAPIExample()
                </div>
             </div>
          </div>`
-    }).join()
-    document.getElementById("hero-container").innerHTML = result;
-    });
-   
- }
- 
+            }).join()
+            document.getElementById("hero-container").innerHTML = result;
+        });
 
-function showDescription(movieName , desc) {
-  alert("Hey");
-  console.log(movieName , desc);
+}
+
+
+function showDescription(movieName, desc) {
+    alert("Hey");
+    console.log(movieName, desc);
 }

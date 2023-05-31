@@ -492,7 +492,7 @@ h5.movie-title {
   cursor: pointer;
   width: 100%;
   background-color: #0d0d5e;
-  background-image: linear-gradient(315deg, #0c0c47 0%, #009ffd 74%);
+  background-image: linear-gradient(135deg, #82407d 0%, #298096 100%);
 
   color: white;
   padding: 15px 11px;
@@ -771,6 +771,79 @@ p.input-field {
   width: 100%;
   letter-spacing: .11rem;
   height: 47px;
+}
+
+
+.modal-backdrop.show {
+  display: none;
+}
+
+.modal-body img {
+  height: 319px;
+  float: left;
+  margin: 0px 20px 0px 0px;
+ 
+}
+
+.modal-footer {
+  display: inline-block;
+  background: linear-gradient(135deg, #753370 0%, #298096 100%);
+  height: 50px;
+}
+
+.modal-title{
+  display: none;
+}
+
+.modal-header{
+  background-color: #0d0d5e;
+  background-image: linear-gradient(135deg, #82407d 0%, #298096 100%)
+}
+
+
+.btn-close:hover{
+  font-size: 15px;
+}
+
+.btn-second {
+  background-color: transparent;
+  color: honeydew;
+  font-size: 30px;
+  font-weight: 600;
+
+  position: relative;
+  bottom: 6px;
+  word-spacing: 5px;
+  letter-spacing: 15px;
+}
+
+.btn-second:hover{
+  letter-spacing: 0px;
+  transition: .6s ease-in-out ;
+ 
+  font-family: 'Roboto', sans-serif;
+}
+
+.title {
+  font-size: 28px;
+  color: chocolate;
+  font-weight: 700;
+  float: left;
+  font-family: 'Roboto', 'sans-serif'; 
+  text-align: justify;
+}
+
+span.lang {
+  font-size: 20px;
+  float: left;
+  color: black;
+  font-weight: 500;
+}
+
+span.rating-board{
+  font-size: 24px;
+  float: left;
+  font-weight: 600;
 }
 
 .button:hover {
