@@ -785,6 +785,17 @@ p.input-field {
  
 }
 
+div#card-payment {
+  display: flex !important;
+  justify-content: space-evenly;
+}
+
+div#expiration-date {
+  display: flex;
+  width: 36%;
+  /* display: -webkit-inline-box; */
+}
+
 .modal-footer {
   display: inline-block;
   background: linear-gradient(135deg, #753370 0%, #298096 100%);

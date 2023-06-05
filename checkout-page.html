@@ -49,29 +49,85 @@
     
                     <div class="radio-set">
                         <div class="radio-btns">
-                            <input type="radio" class="radio-btn" name="name" required />
+                            <input  onclick="displayPayment()" type="radio" class="radio-btn" name="name" required />
                             <label for="html">Credit Card</label><br />
-                            <input type="radio" class="radio-btn" name="name" required />
+                            <input onclick="displayPay()" type="radio" class="radio-btn" name="name" required />
                             <label for="html">Debit Card</label><br />
                             <input type="radio" class="radio-btn" name="name" required />
                             <label for="html">Upi</label><br />
                         </div>
                     </div>
     
-                    <div class="box-right">
-                        <input type="text" class="inputbox" name="name" required placeholder="Credit Card Number" />
+                   
+                    <div class="box-right"  style="display:none">
+                        <div id="card-payment" class="inputbox"   >           
+                            <div class="form-group owner">
+                               
+                                <input class="inputbox" type="text" class="form-control" id="owner" placeholder="CardHolder Name">
+                            </div>
+                            <div class="form-group" id="card-number-field">
+                                
+                                <input class="inputbox" type="text" class="form-control" id="cardNumber"  placeholder="Card Number">
+                            </div>
+                            <div class="form-group CVV" style="width: 10%;">
+                                
+                                <input class="inputbox"  placeholder="CVV" type="text" class="form-control" id="cvc">
+                            </div> 
+                            
+                            <div  class="form-group" id="expiration-date" class="inputbox">
+                                
+                                <select class="inputbox" namheye="months" id="months">
+                                    <option value="01">January</option>
+                                    <option value="02">February </option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <select class="inputbox" name="months" id="months">
+                                    <option value="18"> 2018</option>
+                                    <option value="19"> 2019</option>
+                                    <option value="20"> 2020</option>
+                                    <option value="21"> 2021</option>
+                                    <option value="22"> 2022</option>
+                                    <option value="23"> 2023</option>
+                                    <option value="24"> 2024</option>
+                                    <option value="25"> 2025</option>
+                                    <option value="26"> 2026</option>
+                                    <option value="27"> 2027</option>
+                                    <option value="28"> 2028</option>
+                                </select>
+                                <br/><br/>
     
-                        
-    
-                        
-                    </div>
-                    <div class="box-right">
-                        <input type="text" class="inputbox" name="name" required placeholder="Expiration" />
-    
-                        <input type="text" class="inputbox" name="name" required placeholder="CVV" />
-    
+                               
+                            </div>
+                        </div>  
                        
                     </div>
+                    <!-- <div class="box-right">
+                       <div id="card-payment" class="inputbox"  style="display:none">           
+                                <div class="form-group owner">
+                                    <label for="owner">Cardholder Name</label>
+                                    <input type="text" class="form-control" id="owner">
+                                </div>
+                                <div class="form-group" id="card-number-field">
+                                    <label for="cardNumber">Card Number</label>
+                                    <input type="text" class="form-control" id="cardNumber">
+                                </div>
+                                <div class="form-group CVV">
+                                    <label for="cvv">CVC</label>
+                                    <input type="text" class="form-control" id="cvc">
+                                </div>
+                               
+                            </div>  
+                       
+                    </div> -->
     
                     <button type="submit" class="button">Proceed to Pay</button>
                 </form>
@@ -79,6 +135,50 @@
             
         </div>
     </div>
+                <div class="row setup-content" id="step-5">
+                    <div class="col-xs-12">
+                        <div class="col-md-12">
+                           
+                            <div id="pay_method" >
+                             <input onclick="displayPayment()"  name="name" type="radio" value="C">
+                                <label for="html" >Credit Card</label>
+                                </div>
+                                <div id="pays_method" >
+                                <input  onclick="displayPay()"  name="name" type="radio" value="B">
+                                <label for="html">Debit Card</label>
+                                </div>
+<br/> <br/><br/><br/>
+                             <div id="bank-payment" class ="payment" style="display:none">
+                                     <div class="form-group" id="bankacct">
+                                    <label for="bankaccount">Bank Account #</label> 
+                                    
+                                         <input type="text" class="form-control" id="bankaccount"> </div>
+                                 <div class="form-group" id="accttype">
+                                <label> Account Type</label> <br/>
+                                <select name="accounttype" id="accounttype">
+                                        <option value="check"> Checking</option>
+                                        <option value="save"> Savings</option>
+                                     </select> <br/> </div>
+                                 <div class="form-group" id="routing">
+                                 <label for="routing">Routing #</label>
+                                     <input type="text" class="form-control" id="routing"> </div>
+                                 <div class="form-group" id="debitday">
+                                <label for="day">Debit Day</label> <br/>
+                                    <select name="day" id="day">
+                                        <option value="10"> 10</option>
+                                        <option value="25"> 25</option>
+                                     </select> </div>
+
+                            </div>        
+
+
+
+
+                            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+                        </div>
+                    </div>
+                </div>
 </div>
+<script src="App.js"></script>
 </body>
 </html>

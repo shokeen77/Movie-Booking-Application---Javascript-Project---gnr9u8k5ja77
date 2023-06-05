@@ -108,3 +108,23 @@ function showDescription(movieName, desc) {
     alert("Hey");
     console.log(movieName, desc);
 }
+
+
+function displayPayment() {
+    var pay_method = document.getElementById("pay_method");
+    var divc = document.getElementById("card-payment");
+    
+    divc.style.display = pay_method.value == "C" ? "inline-block" : "inline";
+   
+
+}
+
+function displayPay() {
+    var pays_method = document.getElementById("pays_method");
+   
+    var divb = document.getElementById("bank-payment");
+    
+    divb.style.display = pays_method.value == "B" ? "none" :  "inline" ;
+
+}
+
