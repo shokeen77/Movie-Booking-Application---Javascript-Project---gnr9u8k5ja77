@@ -1,5 +1,4 @@
 const image_base_path = "https://image.tmdb.org/t/p/w500";
-
 function fetchAPIExample() {
     let temp = fetch("https://api.themoviedb.org/3/tv/popular?api_key=f7deed720cf5347ef72ca2f166de2c19&language=en-US&page=1")
         .then((response) => response.json())
@@ -10,8 +9,8 @@ function fetchAPIExample() {
                 const imgeUrl = image_base_path + data.poster_path;
                 result += `<div class="main-container" >
              <div class="poster-container" >
-             <button  type="button"  data-bs-toggle="modal" data-bs-target="#${data.original_name}" href="#" ><img  src="${imgeUrl}" class="poster"/></button>
-             <div class="modal fade" id="${data.original_name}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             <button class="m-button"  type="button"  data-bs-toggle="modal" data-bs-target="#${data.id}" href="#" ><img  src="${imgeUrl}" class="poster"/></button>
+             <div class="modal fade" id="${data.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
              <div class="modal-dialog modal-dialog-centered">
                  <div class="modal-content">
                      <div class="modal-header">
@@ -28,7 +27,7 @@ function fetchAPIExample() {
                   </div>
                  <div class = "title"> </div>
                      <div class="modal-footer">
-                        <a href = "checkout-page.html"> <button  type="button" class="btn-second" data-bs-dismiss="modal">Book Now</button> </a>
+                        <a href = "checkout-page.html"> <button  type="button" class="btn-second" data-bs-dismiss="modal" onclick= "storeName('` + data.original_name+ `')">Book Now</button> </a>
                        
                      </div>
                  </div>
@@ -114,7 +113,7 @@ function displayPayment() {
     var pay_method = document.getElementById("pay_method");
     var divc = document.getElementById("card-payment");
     
-    divc.style.display = pay_method.value == "C" ? "inline-block" : "inline";
+    divc.style.display = pay_method.value == "C" ? "none" : "block";
    
 
 }
@@ -124,7 +123,12 @@ function displayPay() {
    
     var divb = document.getElementById("bank-payment");
     
-    divb.style.display = pays_method.value == "B" ? "none" :  "inline" ;
+    divb.style.display = pays_method.value == "B" ? "none" :  "block" ;
 
 }
 
+
+function storeName(name){
+    localStorage.setItem("moviename",name);
+    
+}
