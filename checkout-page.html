@@ -44,89 +44,29 @@
 
                             <div class="radio-set">
                                 <div class="radio-btns">
-                                    <input onclick="displayPayment()" type="radio" class="radio-btn" name="name" required />
-                                    <label for="html">Credit Card</label><br />
-                                    <input onclick="displayPay()" type="radio" class="radio-btn" name="name" required />
-                                    <label for="html">Debit Card</label><br />
-                                    <input type="radio" class="radio-btn" name="name" required />
-                                    <label for="html">Upi</label><br />
-                                </div>
-                            </div>
-
-                            <div class="box-right">
-                                <div id="bank-payment" class="payment" style="display: none;">
-                                    <div class="form-group" id="bankacct">
-                                        <input type="text" class="inputbox" id="bankaccount" placeholder="Bank-Account" />
+                                    <div id="pay_method">
+                                        <input onclick="displayPayment()" name="name" type="radio" value="C" />
+                                        <label for="html">Credit Card</label>
                                     </div>
-                                    <div class="form-group" id="accttype">
-                                        <label> Account Type</label> <br />
-                                        <select class="inputbox" name="accounttype" id="accounttype">
-                                            <option value="check"> Current</option>
-                                            <option value="save"> Savings</option>
-                                        </select>
-                                        <br />
+                                    <div id="pays_method">
+                                        <input onclick="displayPay()" name="name" type="radio" value="B" />
+                                        <label for="html">Debit Card</label>
                                     </div>
-
-                                    <div class="form-group" id="debitday">
-                                        <label for="day">Debit Day</label> <br />
-                                        <select name="day" id="day">
-                                            <option value="10"> 10</option>
-                                            <option value="25"> 25</option>
-                                        </select>
+                                    <div id="payss_method">
+                                    <input onclick="displayUpi()" name="name" type="radio"   value="A" />
+                                    <label for="html">Upi</label>
                                     </div>
                                 </div>
                             </div>
 
-                            <button type="submit" class="button">Proceed to Pay</button>
+                            <div id="box-right"></div>
+                             <button type="submit" class="button">Proceed to Pay</button>
                         </form>
                     </div>
-                </div>
-            </div>
-            <div class="row setup-content" id="step-5">
-                <div class="col-xs-12">
-                    <div class="col-md-12">
-                        <div id="pay_method">
-                            <input onclick="displayPayment()" name="name" type="radio" value="C" />
-                            <label for="html">Credit Card</label>
-                        </div>
-                        <div id="pays_method">
-                            <input onclick="displayPay()" name="name" type="radio" value="B" />
-                            <label for="html">Debit Card</label>
-                        </div>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <div id="bank-payment" class="payment" style="display: none;">
-                            <div class="form-group" id="bankacct">
-                                <label for="bankaccount">Bank Account #</label>
-
-                                <input type="text" class="form-control" id="bankaccount" />
-                            </div>
-                            <div class="form-group" id="accttype">
-                                <label> Account Type</label> <br />
-                                <select name="accounttype" id="accounttype">
-                                    <option value="check"> Current</option>
-                                    <option value="save"> Savings</option>
-                                </select>
-                                <br />
-                            </div>
-                            <div class="form-group" id="routing">
-                                <label for="routing">Routing #</label>
-                                <input type="text" class="form-control" id="routing" />
-                            </div>
-                            <div class="form-group" id="debitday">
-                                <label for="day">Debit Day</label> <br />
-                                <select name="day" id="day">
-                                    <option value="10"> 10</option>
-                                    <option value="25"> 25</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
                     </div>
                 </div>
             </div>
+           
         </div>
 
         <script>

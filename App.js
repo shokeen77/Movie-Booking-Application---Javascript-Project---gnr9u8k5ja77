@@ -1,3 +1,5 @@
+//  -------------------- For FETCH API -------------------
+
 const image_base_path = "https://image.tmdb.org/t/p/w500";
 function fetchAPIExample() {
     let temp = fetch("https://api.themoviedb.org/3/tv/popular?api_key=f7deed720cf5347ef72ca2f166de2c19&language=en-US&page=1")
@@ -51,7 +53,7 @@ function fetchAPIExample() {
 fetchAPIExample()
 
 
-
+// -------------------- For Genre List -------------------
 
 function genreList() {
     const GENRE_URL = "https://api.themoviedb.org/3/genre/movie/list?api_key=f7deed720cf5347ef72ca2f166de2c19&language=en-US";
@@ -68,6 +70,8 @@ function genreList() {
 }
 genreList();
 
+
+//  -------------------- For Search Functionality -------------------
 
 function searchMovie(event) {
     event.preventDefault();
@@ -102,33 +106,137 @@ function searchMovie(event) {
 
 }
 
+//  -------------------- For Movie Description -------------------
 
 function showDescription(movieName, desc) {
     alert("Hey");
     console.log(movieName, desc);
 }
 
-
-function displayPayment() {
-    var pay_method = document.getElementById("pay_method");
-    var divc = document.getElementById("card-payment");
-    
-    divc.style.display = pay_method.value == "C" ? "none" : "block";
-   
-
-}
-
-function displayPay() {
-    var pays_method = document.getElementById("pays_method");
-   
-    var divb = document.getElementById("bank-payment");
-    
-    divb.style.display = pays_method.value == "B" ? "none" :  "block" ;
-
-}
-
+//  -------------------- For Movie Name -------------------
 
 function storeName(name){
     localStorage.setItem("moviename",name);
     
 }
+
+//  -------------------- Payment Mode -------------------
+function showPayment(payment) {
+    let temp = showPayment()
+        .then((response) => response.json())
+        .then((response) => {
+            let tempId = 0;
+            let pay= ""
+            response.results.map(data => {
+                
+                result += `<div id="debit-payment" class="payment">
+                <div class="form-group" id="bankacct">
+                    <input type="text" class="inputbox" id="bankaccount" placeholder="Bank-Account" />
+                </div>
+                <div class="form-group" id="accttype">
+                    <label> Account Type</label> <br />
+                    <select class="inputbox" name="accounttype" id="accounttype">
+                        <option value="check"> Current</option>
+                        <option value="save"> Savings</option>
+                    </select>
+                    <br />
+                </div>
+
+                <div class="form-group" id="debitday">
+                    <label for="day">Debit Day</label> <br />
+                    <select name="day" id="day">
+                        <option value="10"> 10</option>
+                        <option value="25"> 25</option>
+                    </select>
+                </div>
+            </div>
+
+             <div id="card-payment" class="payment" >
+                <div class="form-group" id="bankacct">
+                    <input type="text" class="inputbox" id="bankaccount" placeholder="Bank-Account" />
+                </div>
+                <div class="form-group" id="accttype">
+                    <label> Account Type</label> <br />
+                    <select class="inputbox" name="accounttype" id="accounttype">
+                       
+                        <option value="save"> Savings</option>
+                    </select>
+                    <br />
+                </div>
+
+                <div class="form-group" id="debitday">
+                    <label for="day">Debit Day</label> <br />
+                    <select name="day" id="day">
+                        
+                        <option value="25"> 25</option>
+                    </select>
+                </div>
+            </div>
+
+             
+                <div id="upi-payment" class="payment">
+                <div class="form-group" id="bankacct">
+                    <input type="text" class="inputbox" id="bankaccount" placeholder="Bank-Account" />
+                </div>
+                <div class="form-group" id="accttype">
+                    <label> Account Type</label> <br />
+                    <select class="inputbox" name="accounttype" id="accounttype">
+                        <option value="check"> Current</option>
+                        <option value="save"> Savings</option>
+                    </select>
+                    <br />
+                </div>
+
+                <div class="form-group" id="debitday">
+                    <label for="day">Debit Day</label> <br />
+                    <select name="day" id="day">
+                        <option value="10"> 10</option>
+                        <option value="25"> 25</option>
+                    </select>
+                </div>
+            </div>`
+            }).join()
+            document.getElementById("box-right").innerHTML = pay;
+        });
+
+}
+showPayment();
+
+
+// // --------------------For Credit Card-------------------
+
+// function displayPayment() {
+//     var pay_method = document.getElementById("pay_method");
+//     var divc = document.getElementById("card-payment");
+    
+//     divc.style.display = pay_method.value == "C" ? "none" : "inline-block";
+   
+
+// }
+
+
+
+// // --------------------For Debit Card-------------------
+
+// function displayPay() {
+//     var pays_method = document.getElementById("pays_method");
+   
+//     var divb = document.getElementById("debit-payment");
+    
+//     divb.style.display = pays_method.value == "B" ? "none" :  "inline" ;
+
+// }
+
+// // --------------------For UPI-------------------
+
+// function displayUpi() {
+//     var payss_method = document.getElementById("payss_method");
+   
+//     var diva = document.getElementById("upi-payment");
+    
+//     divb.style.display = pays_method.value == "A" ? "none" :  "inline" ;
+
+// }
+
+
+
