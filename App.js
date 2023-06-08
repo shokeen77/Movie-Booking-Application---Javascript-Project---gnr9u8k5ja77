@@ -129,7 +129,7 @@ function showPayment(payment) {
             let pay= ""
             response.results.map(data => {
                 
-                result += `<div id="debit-payment" class="payment">
+                result += `<div id=" $(data.id)" class="payment">
                 <div class="form-group" id="bankacct">
                     <input type="text" class="inputbox" id="bankaccount" placeholder="Bank-Account" />
                 </div>
@@ -151,7 +151,7 @@ function showPayment(payment) {
                 </div>
             </div>
 
-             <div id="card-payment" class="payment" >
+             <div id=" $(data.id)" class="payment" >
                 <div class="form-group" id="bankacct">
                     <input type="text" class="inputbox" id="bankaccount" placeholder="Bank-Account" />
                 </div>
@@ -174,7 +174,7 @@ function showPayment(payment) {
             </div>
 
              
-                <div id="upi-payment" class="payment">
+                <div id=" $(data.id)" class="payment">
                 <div class="form-group" id="bankacct">
                     <input type="text" class="inputbox" id="bankaccount" placeholder="Bank-Account" />
                 </div>
