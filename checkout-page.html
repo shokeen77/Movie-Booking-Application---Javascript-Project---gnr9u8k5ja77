@@ -1,77 +1,154 @@
 <!DOCTYPE html>
 <html style="display: inline !important;" lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="stylesheet" href="./styles.css" type="text/css" media="screen" />
-    </head>
-    <body>
-        <div class="container">
-            <div class="card-set">
-                <div class="card-1">
-                    <div class="form-display">
-                        <form action="">
-                            <h1 class="main-head">Summary</h1>
-                            <h5 class="summary-head" id="movieName"></h5>
-                            <div class="box-left">
-                                <h5 class="summary-ticket">
-                                    Classic Ticket
-                                    <span class="price"> ₹250 </span>
-                                </h5>
-                            </div>
-
-                            <input type="number" class="inputbox-1" min="0" max="10" step="0" placeholder="No. of Tickets" />
-                            <h5 class="summary-fees">Convenience Fee (1.75%)</h5>
-
-                            <hr />
-                            <h4 class="summary-total">SubTotal</h4>
-                        </form>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="form-display">
-                        <form action="">
-                            <h1>CheckOut</h1>
-                            <div class="box-right">
-                                <input type="text" class="inputbox" name="names" required placeholder="First Name" />
-
-                                <input type="text" class="inputbox" name="names" required placeholder="Last Name" />
-
-                                <input type="text" class="inputbox" name="names" required placeholder="E-mail" />
-                            </div>
-
-                            <div class="radio-set">
-                                <div class="radio-btns">
-                                    <div id="pay_method">
-                                        <input onclick="displayPayment()" name="name" type="radio" value="C" />
-                                        <label for="html">Credit Card</label>
-                                    </div>
-                                    <div id="pays_method">
-                                        <input onclick="displayPay()" name="name" type="radio" value="B" />
-                                        <label for="html">Debit Card</label>
-                                    </div>
-                                    <div id="payss_method">
-                                    <input onclick="displayUpi()" name="name" type="radio"   value="A" />
-                                    <label for="html">Upi</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="box-right"></div>
-                             <button type="submit" class="button">Proceed to Pay</button>
-                        </form>
-                    </div>
-                    </div>
-                </div>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card-set">
+        <div class="card-1">
+          <div class="form-display">
+            <form action="">
+              <h1 class="main-head">Summary</h1>
+              <h5 class="summary-head" id="movieName"></h5>
+              <div class="box-left">
+                <h5 class="summary-ticket"> Classic Ticket 
+                  <span id="totalValue" class="price" oninput="setTotal()"> ₹250 </span>
+                </h5>
+              </div>
+              <input onchange="showTotal()" id="notickets" type="number" 
+              class="inputbox-1" min="1" max="10" step="0" placeholder="No. of Tickets" value="1" oninput="setTotal()" />
+              <h5  class="summary-fees">Convenience Fee (1.75%) = <span  id="fees"></span></h5>
+              <hr />
            
+              
+              <h4 class="summary-fees">SubTotal = <span id="finalFees">0</span></h4>
+            </form>
+          </div>
         </div>
-
-        <script>
-            document.getElementById("movieName").innerHTML = localStorage.getItem("moviename");
-        </script>
-        <script src="App.js"></script>
-    </body>
+        <div class="card">
+          <div class="form-display">
+            <form action="">
+              <h1>CheckOut</h1>
+              <div class="box-right">
+                <input type="text" class="inputbox" name="names" required placeholder="First Name" />
+                <input type="text" class="inputbox" name="names" required placeholder="Last Name" />
+                <input type="text" class="inputbox" name="names" required placeholder="E-mail" />
+              </div>
+              <div class="radio-set">
+                <div class="radio-btns">
+                  <div id="pay_method">
+                    <input onchange="displayPayment()" name="payment" type="radio" value="C" />
+                    <label for="html">Credit Card</label>
+                  </div>
+                  <div id="pays_method">
+                    <input onchange="displayPay()" name="payment" type="radio" value="B" />
+                    <label for="html">Debit Card</label>
+                  </div>
+                  <div id="payss_method">
+                    <input onchange="displayUpi()" name="payment" type="radio" value="A" />
+                    <label for="html">Upi</label>
+                  </div>
+                </div>
+              </div>
+              <div id="payment-area-credit" style="display: none;">
+                <div class="box-right">
+                  <input type="text" class="inputbox-credit" name="names" required placeholder="Enter Credit Number" />
+                  <input type="text" class="inputbox-credit" name="names" required placeholder="CVV" />
+                  <div class="inputbox-date">
+                    <div class="month">
+                      <select class="inputbox-date-data" name="Month">
+                        <option value="Select Month">Select Month</option>
+                        <option value="january">January</option>
+                        <option value="february">February</option>
+                        <option value="march">March</option>
+                        <option value="april">April</option>
+                        <option value="may">May</option>
+                        <option value="june">June</option>
+                        <option value="july">July</option>
+                        <option value="august">August</option>
+                        <option value="september">September</option>
+                        <option value="october">October</option>
+                        <option value="november">November</option>
+                        <option value="december">December</option>
+                      </select>
+                    </div>
+                    <div>
+                      <select class="year-no" name="Year">
+                        <option value="Select Year">Select Year</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="payment-area-debit" style="display: none;">
+                <div class="box-right">
+                  <input type="text" class="inputbox-credit" name="names" required placeholder="Enter Debit Card Number" />
+                  <input type="text" class="inputbox-credit" name="names" required placeholder="CVV" />
+                  <div class="inputbox-date">
+                    <div class="month">
+                      <select class="inputbox-date-data" name="Month">
+                        <option value="Select Month">Select Month</option>
+                        <option value="january">January</option>
+                        <option value="february">February</option>
+                        <option value="march">March</option>
+                        <option value="april">April</option>
+                        <option value="may">May</option>
+                        <option value="june">June</option>
+                        <option value="july">July</option>
+                        <option value="august">August</option>
+                        <option value="september">September</option>
+                        <option value="october">October</option>
+                        <option value="november">November</option>
+                        <option value="december">December</option>
+                      </select>
+                    </div>
+                    <div>
+                      <select class="year-no" name="Year">
+                        <option value="Select Year">Select Year</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="payment-area-upi" style="display: none;">
+                <div class="box-right">
+                  <input type="text" class="inputbox" name="names" required placeholder="Enter Upi Number" />
+                </div>
+              </div>
+              <button type="submit" class="button">Proceed to Pay</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <script src="App.js"></script>
+    <script>
+      document.getElementById("movieName").innerHTML = localStorage.getItem("moviename");
+    </script>
+  </body>
 </html>

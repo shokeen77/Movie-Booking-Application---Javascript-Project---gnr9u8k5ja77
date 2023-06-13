@@ -708,6 +708,82 @@ p.input-field {
   box-shadow: 0 5px 5px 3px rgba(183, 179, 179, 0.13);
 }
 
+
+.inputbox-credit {
+  color: #030303;
+  width: 100%;
+  padding: 0.5rem;
+  height: 40px;
+  margin: 0px 20px 17px 0px;
+  border: none;
+  border-bottom: 1.5px solid #ccc;
+  margin-bottom: 1rem;
+  border-radius: 0.3rem;
+  font-family: 'Roboto', sans-serif;
+  color: #615a5a;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 5px 5px 3px rgba(183, 179, 179, 0.13);
+}
+
+.year-no {
+  color: #030303;
+  width: auto;
+  padding: 0.5rem;
+  height: 40px;
+  margin: 0px 20px 17px 0px;
+  border: none;
+  border-bottom: 1.5px solid #ccc;
+  margin-bottom: 1rem;
+  border-radius: 0.3rem;
+  font-family: 'Roboto', sans-serif;
+  color: #615a5a;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 5px 5px 3px rgba(183, 179, 179, 0.13);
+}
+
+.inputbox-date{
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputbox-date{
+  color: #030303;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 1rem;
+  font-family: 'Roboto', sans-serif;
+  color: #615a5a;
+  font-size: 1.1rem;
+  font-weight: 500;
+  
+}
+
+.month {
+  padding: 0.5rem;
+  margin: -9px 11px 9px 0px;
+}
+
+
+
+.inputbox-date-data{
+  color: #030303;
+  width: auto;
+  padding: 0.5rem;
+  height: 40px;
+  margin: 0px 20px 17px 0px;
+  border: none;
+  border-bottom: 1.5px solid #ccc;
+  margin-bottom: 1rem;
+  border-radius: 0.3rem;
+  font-family: 'Roboto', sans-serif;
+  color: #615a5a;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 5px 5px 3px rgba(183, 179, 179, 0.13);
+}
+
 .radio-set{
   border: 2px solid gainsboro;
   font-size: 20px;
@@ -772,13 +848,26 @@ p.input-field {
   border: none;
   border-radius: 50px;
   color: white;
-  font-weight: 400;
-  font-size: 33px;
+  font-weight: 400;width: 100%;
+  padding: 0.5rem;
+  margin: 0px 20px 17px 0px;
+  border: none;
+  border-bottom: 1.5px solid #ccc;
+  margin-bottom: 1rem;
+  border-radius: 0.3rem;
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 5px 5px 3px rgba(183, 179, 179, 0.13);
+  font-size: 27px;
   margin-top: 7px;
   width: 100%;
   letter-spacing: .11rem;
   height: 47px;
 }
+  
+
 
 
 .modal-backdrop.show {
@@ -884,7 +973,7 @@ span.rating-board{
 
 h5.summary-fees {
   font-size: 20px;
-  line-height: 0px;
+ 
   color: chocolate;
 }
 

@@ -120,123 +120,73 @@ function storeName(name){
     
 }
 
-//  -------------------- Payment Mode -------------------
-function showPayment(payment) {
-    let temp = showPayment()
-        .then((response) => response.json())
-        .then((response) => {
-            let tempId = 0;
-            let pay= ""
-            response.results.map(data => {
-                
-                result += `<div id=" $(data.id)" class="payment">
-                <div class="form-group" id="bankacct">
-                    <input type="text" class="inputbox" id="bankaccount" placeholder="Bank-Account" />
-                </div>
-                <div class="form-group" id="accttype">
-                    <label> Account Type</label> <br />
-                    <select class="inputbox" name="accounttype" id="accounttype">
-                        <option value="check"> Current</option>
-                        <option value="save"> Savings</option>
-                    </select>
-                    <br />
-                </div>
 
-                <div class="form-group" id="debitday">
-                    <label for="day">Debit Day</label> <br />
-                    <select name="day" id="day">
-                        <option value="10"> 10</option>
-                        <option value="25"> 25</option>
-                    </select>
-                </div>
-            </div>
+ // --------------------For Credit Card-------------------
 
-             <div id=" $(data.id)" class="payment" >
-                <div class="form-group" id="bankacct">
-                    <input type="text" class="inputbox" id="bankaccount" placeholder="Bank-Account" />
-                </div>
-                <div class="form-group" id="accttype">
-                    <label> Account Type</label> <br />
-                    <select class="inputbox" name="accounttype" id="accounttype">
-                       
-                        <option value="save"> Savings</option>
-                    </select>
-                    <br />
-                </div>
-
-                <div class="form-group" id="debitday">
-                    <label for="day">Debit Day</label> <br />
-                    <select name="day" id="day">
-                        
-                        <option value="25"> 25</option>
-                    </select>
-                </div>
-            </div>
-
-             
-                <div id=" $(data.id)" class="payment">
-                <div class="form-group" id="bankacct">
-                    <input type="text" class="inputbox" id="bankaccount" placeholder="Bank-Account" />
-                </div>
-                <div class="form-group" id="accttype">
-                    <label> Account Type</label> <br />
-                    <select class="inputbox" name="accounttype" id="accounttype">
-                        <option value="check"> Current</option>
-                        <option value="save"> Savings</option>
-                    </select>
-                    <br />
-                </div>
-
-                <div class="form-group" id="debitday">
-                    <label for="day">Debit Day</label> <br />
-                    <select name="day" id="day">
-                        <option value="10"> 10</option>
-                        <option value="25"> 25</option>
-                    </select>
-                </div>
-            </div>`
-            }).join()
-            document.getElementById("box-right").innerHTML = pay;
-        });
-
-}
-showPayment();
-
-
-// // --------------------For Credit Card-------------------
-
-// function displayPayment() {
-//     var pay_method = document.getElementById("pay_method");
-//     var divc = document.getElementById("card-payment");
-    
-//     divc.style.display = pay_method.value == "C" ? "none" : "inline-block";
+function displayPayment() {
    
-
-// }
+    var divc = document.getElementById("payment-area-credit");
+    let radioChoice = document.querySelectorAll('input[name="payment"]:checked')
+    radioChoice.checked=false;
+    divc.style.display = radioChoice[0].value ==  "C" ? "inline" : "none";
+    var diva = document.getElementById("payment-area-upi");
+    diva.style.display = "none";
+    var divb = document.getElementById("payment-area-debit");
+    divb.style.display = "none";
+   
+}
 
 
 
 // // --------------------For Debit Card-------------------
 
-// function displayPay() {
-//     var pays_method = document.getElementById("pays_method");
-   
-//     var divb = document.getElementById("debit-payment");
-    
-//     divb.style.display = pays_method.value == "B" ? "none" :  "inline" ;
-
-// }
+function displayPay() {
+    let radioChoice = document.querySelectorAll('input[name="payment"]:checked')
+    var divb = document.getElementById("payment-area-debit");
+    divb.style.display = radioChoice[0].value ==  "B" ? "inline" : "none";
+    var divc = document.getElementById("payment-area-credit");
+    divc.style.display = "none" ;
+    var diva = document.getElementById("payment-area-upi");
+    diva.style.display = "none";
+    }
 
 // // --------------------For UPI-------------------
 
-// function displayUpi() {
-//     var payss_method = document.getElementById("payss_method");
-   
-//     var diva = document.getElementById("upi-payment");
-    
-//     divb.style.display = pays_method.value == "A" ? "none" :  "inline" ;
+function displayUpi() {
+    let radioChoice = document.querySelectorAll('input[name="payment"]:checked')
+   var diva = document.getElementById("payment-area-upi");
+    diva.style.display = radioChoice[0].value == "A" ? "inline" :  "none"  ;
+    var divb = document.getElementById("payment-area-debit");
+    divb.style.display = "none";
+   }
 
-// }
+
+   function showTotal(){
+    var storage = document.getElementById("notickets") 
+    var tax = document.getElementById("fees")
+    var notickets =  parseInt(storage.value)
+    var convenienceFee =  1.75*(250 / 100)*notickets
+    var fees = document.getElementById("fees")
+    fees.innerHTML = convenienceFee;
+   }
+
+   function setTotal() {
+    
+    var price = document.getElementById("notickets").value;
+    var notickets =  parseInt(price.value);
+    var convenienceFee =  1.75*(250 / 100)*notickets;
+    var total = convenienceFee + (notickets*250) ;
+    // console.log(total);
+    console.log(convenienceFee);
+    console.log(notickets);
+    console.log(typeof price);
+    
+    
+    
+    // document.getElementById("finalFees").innerHTML = total;
+   }
+   
+
 
 
 
