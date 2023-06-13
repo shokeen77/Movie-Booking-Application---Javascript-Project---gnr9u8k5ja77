@@ -172,19 +172,15 @@ function displayUpi() {
 
    function setTotal() {
     
-    var price = document.getElementById("notickets").value;
+    var price = document.getElementById("notickets");
     var notickets =  parseInt(price.value);
     var convenienceFee =  1.75*(250 / 100)*notickets;
     var total = convenienceFee + (notickets*250) ;
     // console.log(total);
-    console.log(convenienceFee);
-    console.log(notickets);
-    console.log(typeof price);
-    
-    
-    
-    // document.getElementById("finalFees").innerHTML = total;
-   }
+    console.log(total);
+    document.getElementById("finalFees").innerHTML=total;
+    }
+    setTotal();
    
 
 
