@@ -28,8 +28,8 @@
                     </h1>
                     <!--Menu-->
                     <nav id="navi">
-                        <div id="navi_wrap" class="menu-demo-menu-container">
-                            <ul class="menu" id="genre-list"></ul>
+                        <div id="navi_wrap" class="menu-demo-menu-container" >
+                          <button class="genre-btn" href = "#"><ul class="menu" id="genre-list" onclick="searchMovie()" ></button></ul>
                         </div>
                     </nav>
                     <!-- End Menu -->
@@ -41,12 +41,12 @@
                 <div class="navbar">
                     <a href="index.html">Movie Booking Application</a>
                     <div class="sidebar-bottom-wrap">
-                        <form class="search-form_header">
+                        <!-- <form class="search-form_header"> -->
                             <input type="text" id="search-field" class="textboxsearch" placeholder="Search" />
                             <span class="submit-wrap">
-                                <input type="submit" onclick="searchMovie(event)" />
+                                <input type="submit" onclick="searchMovie()" />
                             </span>
-                        </form>
+                        <!-- </form> -->
                     </div>
                 </div>
                

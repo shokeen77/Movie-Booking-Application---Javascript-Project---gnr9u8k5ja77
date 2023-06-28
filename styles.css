@@ -108,6 +108,10 @@ h6 {
   height: 100%;
   width: 300px;
 }
+.sidebar-main {
+  max-height: 90%;
+  overflow: auto;
+}
 
 .sidebar-main.sidebar_hide {
   padding-right: 60px;
@@ -141,8 +145,12 @@ h6 {
 /*Menu*/
 
 #navi {
-  margin-top: 40px;
+  margin-top: 65px;
   padding-right: 60px;
+  padding-left: 20px;
+}
+div#navi_wrap {
+  margin: 20px 15px 85px -18px;
 }
 
 #navi a {
@@ -157,9 +165,13 @@ h6 {
 }
 
 #navi div ul li {
-  max-height: 40px;
-  line-height: 24px;
+  line-height: 30px;
   margin-left: 20px;
+}
+
+
+button.genre-btn {
+  background: none;
 }
 
 #navi div ul li a {
@@ -187,6 +199,17 @@ h6 {
   position: relative;
 }
 
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(.9);
+  }
+    100% {
+    transform: scale(1);
+  }
+}
 #navi ul li ul.sub-menu {
   position: absolute;
   left: 105%;
@@ -394,9 +417,9 @@ input[type="submit"] {
   color: #ccc;
   border: none;
   border-radius: 0;
-  height: 30px;
+  /* height: 30px; */
   line-height: 30px;
-  padding: 0 15px;
+  padding: 7 16px;
 }
 
 #hero-container {
@@ -446,9 +469,10 @@ input[type="submit"] {
 
 .main-container .box-container {
   opacity: 1;
-  animation: bounceIn 0.6s linear;
   box-shadow: 0 2px 11px 3px #3F51B5;
 }
+
+
 
 @keyframes bounceIn {
 
@@ -604,10 +628,11 @@ a {
 	transition: 200ms ease-in-out;
 }
 
-button:hover {
+.genre-btn:hover {
 	-webkit-transform: scale(1.1);
 	    -ms-transform: scale(1.1);
 	        transform: scale(1.1);
+          /* margin: 0 !important; */
 }
 
 
@@ -926,7 +951,7 @@ div#expiration-date {
 
 .btn-second:hover{
   letter-spacing: 0px;
-  transition: .6s ease-in-out ;
+  transition: .2s ease-in-out ;
  
   font-family: 'Roboto', sans-serif;
 }
