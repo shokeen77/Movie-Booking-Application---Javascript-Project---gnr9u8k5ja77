@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Checkout-Page</title>
     <link rel="stylesheet" href="./styles.css" type="text/css" media="screen" />
   </head>
   <body>
@@ -21,7 +21,7 @@
                 </h5>
               </div>
               <input onchange="showTotal()" id="notickets" type="number" 
-              class="inputbox-1" min="1" max="10" step="0" placeholder="No. of Tickets" value="2" oninput="setTotal()" />
+              class="inputbox-1" min="1" max="10" step="0" placeholder="No. of Tickets" value="0" oninput="setTotal()" />
               <h5  class="summary-fees">Convenience Fee (1.75%) = <span  id="fees"></span></h5>
               <hr />
            
@@ -149,9 +149,10 @@
     </div>
     </div>
     </div>
-    <script src="App.js"></script>
+  
     <script>
       document.getElementById("movieName").innerHTML = localStorage.getItem("moviename");
     </script>
+      <script src="App.js"></script>
   </body>
 </html>
